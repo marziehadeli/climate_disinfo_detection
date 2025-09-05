@@ -1,0 +1,19 @@
+# Core libraries
+openai>=1.35.13
+requests>=2.32.3
+tqdm>=4.66.5
+
+# Web scraping & parsing
+beautifulsoup4>=4.12.3
+lxml>=5.3.0
+
+# Selenium for reverse image search
+selenium>=4.23.1
+webdriver-manager>=4.0.2
+
+# Data handling
+pandas>=2.2.2
+numpy>=1.26.4
+
+# Optional (logging, debugging)
+python-dotenv>=1.0.1
