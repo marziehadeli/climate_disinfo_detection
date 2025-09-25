@@ -5,11 +5,11 @@ from urllib.parse import urlparse
 from openai import OpenAI
 
 # === API Keys ===
-GOOGLE_API_KEY = "AIzaSyDIzrfF98CteJ6pT2-otIJGvrN-B7m3724"
-GOOGLE_CSE_ID = "c785a893227be4578"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_CSE_ID = os.getenv("GOOGLE_CSE_ID")
 
 # === OpenAI API KEYS ===
-client = OpenAI(api_key="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")
+client = OpenAI(api_key = os.getenv("OPENAI_API_KEY"))
 
 # === Trusted fact-checking sites ===
 FACT_CHECK_SITES = [

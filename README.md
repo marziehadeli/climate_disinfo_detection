@@ -1,12 +1,16 @@
 =======
-# 🌍 Climate Disinformation Classifier
-This project was specifically created at Marc’s request for a quick test of the n-to-n framework, that detects and classifies climate-related (mis/dis)information claims by combining:
-- **Textual retrieval** (Google Search, GPT web search, fact-check sites)
-- **Reverse image search** (Google Images)
-- **Multimodal reasoning** (GPT-based reasoning over claim + image + retrieved evidence)
+# 🌍 Climate Disinformation Detection
 
-The system outputs a structured **FINAL REPORT** including the claim, evidence from all retrieval sources, and a verdict (`ACCURATE` or `DISINFORMATION`).
+This repository contains a prototype system designed to detect and classify climate-related **misinformation / disinformation** claims using a multimodal approach. The system integrates:
 
+- **Textual retrieval** (Google Search, GPT-based web search, fact-check sites)  
+- **Reverse image search** (Google Images via Selenium)  
+- **Multimodal reasoning** (GPT-based reasoning over claim + image + retrieved evidence)  
+
+It produces a structured **final report** that includes:  
+- The original claim  
+- Evidence collected from all retrieval sources  
+- A verdict: `ACCURATE` or `DISINFORMATION`  
 ---
 
 📂 Project Structure
@@ -19,16 +23,18 @@ The system outputs a structured **FINAL REPORT** including the claim, evidence f
 │   ├── google_search.py     # Google CSE text search
 │   ├── google_reverse_image.py # Reverse image search (Selenium)
 │   └── factcheck_search.py  # Fact-check site search
-└── reasoning/
-    └── reasoner.py          # GPT reasoning engine
+├──reasoning/
+│   └── reasoner.py          # GPT reasoning engine
+├── tests/
+│ └── test_classifier.py # Unit tests (no real API calls)
+└── README.md
 
-
-## ⚙️ Setup
+## ⚙️ Setup for Running with APIs
 
 ### 1. Clone repository
 ```bash
-git clone https://github.com/yourusername/patr-desinf06.git
-cd climate-disinformation-classifier
+git clone https://github.com/marziehadeli/climate_disinfo_detection.git
+cd climate_disinfo_detection
 ```
 ### 2. Configure API Keys
 Edit `config.py` and add your API credentials:
@@ -37,3 +43,14 @@ Edit `config.py` and add your API credentials:
 
 ### 3. Run the Classifier
 The main.ipynb is entry point of classifier.py
+
+
+## ⚙️ Testing (without APIs)
+
+### 1. Clone repository
+```bash
+git clone https://github.com/marziehadeli/climate_disinfo_detection.git
+cd climate_disinfo_detection
+```
+### 2. Tests are fully mocked (no API calls). Run them with:
+python -m pytest -v
